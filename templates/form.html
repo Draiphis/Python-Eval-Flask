@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <form action="{{ url_for('form') }}" action="POST">
+    <form action="{{ url_for('form') }}" method="POST">
         <div>
             <label for="titre">Titre de l'événement</label>
             <input type="text" id="titre" name="titre">

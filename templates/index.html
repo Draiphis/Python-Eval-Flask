@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <button><a href="{{ url_for('form') }}">Ajouter un événement</a></button>
+    <div class="card">
+    {% for entry in entries %}
+        <p>#{{entry.id}}</p>
+    {% endfor %}
+    </div>
+
+{% endblock content %}

@@ -21,18 +21,12 @@ class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50), nullable=False)
     event_type = db.Column(db.String(50), nullable=False)
-    event_proposed_date = db.Column(db.DateTime, nullable=False)
+    event_proposed_date = db.Column(db.Date, nullable=False)
     event_place = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(50000), nullable=False)
-    proposition_creation_date = db.Column(db.DateTime, default=datetime.now(timezone.utc),  nullable=False)
+    proposition_creation_date = db.Column(db.Date, default=datetime.now(timezone.utc),  nullable=False)
 
-    def __init__(self, title: str, event_type: str, event_proposed_date: datetime, event_place: str, description: str, proposition_creation_date:datetime):
-        self.title = title
-        self.event_type = event_type
-        self.event_proposed_date = event_proposed_date
-        self.event_place = event_place
-        self.description =description
-        self.proposition_creation_date=proposition_creation_date
+    
     
 
     def __repr__(self):
@@ -53,6 +47,11 @@ with app.app_context():
 
 
 
+
+@app.route("/", methods=['GET'])
+def home():
+    entries=Event.query.all()
+    return render_template("index.html", entries=entries)
 
 
 @app.route("/create-event", methods=['GET', 'POST'])
