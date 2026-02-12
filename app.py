@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request,render_template
+from flask import Flask, jsonify, request,render_template,flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timezone
 import locale
@@ -6,8 +6,9 @@ from pydantic import BaseModel, ValidationError, Field
 from sqlalchemy import select
 
 app = Flask(__name__)
+app.secret_key = "j'adore_flask"
 
-locale.setlocale(locale.LC_TIME, 'French_France')
+locale.setlocale(locale.LC_TIME, 'fr_FR.UTF-8')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///event_db.db'
 
@@ -24,10 +25,18 @@ class Event(db.Model):
     event_place = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(50000), nullable=False)
     proposition_creation_date = db.Column(db.DateTime, default=datetime.now(timezone.utc),  nullable=False)
+
+    def __init__(self, title: str, event_type: str, event_proposed_date: datetime, event_place: str, description: str, proposition_creation_date:datetime):
+        self.title = title
+        self.event_type = event_type
+        self.event_proposed_date = event_proposed_date
+        self.event_place = event_place
+        self.description =description
+        self.proposition_creation_date=proposition_creation_date
     
 
     def __repr__(self):
-        return f"<Room {self.name}>"
+        return f"Room ('{self.title}','{self.event_type}','{self.event_proposed_date}','{self.event_place}','{self.description}','{self.proposition_creation_date}')"
     
 class PrintEventRequest(BaseModel):
     title : str = Field(min_length=1, max_length=80)
@@ -48,6 +57,49 @@ with app.app_context():
 
 @app.route("/create-event", methods=['GET', 'POST'])
 def form():
+
+    if request.method == "POST":
+        has_error = False
+           
+        
+        title = str(request.form.get("titre", "").strip())
+        if not title: 
+            has_error = True
+            flash("Veuillez saisir un titre", "error")
+        
+        event_type = request.form.get("type", "").strip()
+        if not event_type: 
+            has_error = True
+            flash("Veuillez selectionner un type d'événement", "error")
+        
+        event_date_raw = request.form.get("event_date", "").strip()
+        try:
+            event_proposed_date = datetime.strptime(event_date_raw, "%Y-%m-%d")
+            if event_proposed_date < datetime.now():
+                raise ValueError
+        except ValueError:
+            has_error = True
+            flash(
+                "Nous n'avons pas encore de machine à remonter dans le temps. "
+                "Veuillez saisir une date après aujourd'hui",
+                "error"
+            )
+        
+        event_place = request.form.get("lieu", "").strip()
+        if not event_place: 
+            has_error = True
+            flash("Veuillez indiquer le lieu de l'événement", "error")
+        
+        description = request.form.get("desc", "").strip()
+        if not description: 
+            has_error = True
+            flash("Veuillez décrire votre événement", "error")
+
+        if not has_error:
+            
+            entry = Event(title=title, event_type=event_type, event_proposed_date=event_proposed_date, event_place=event_place, description=description)
+            db.session.add(entry)
+            db.session.commit()
     return render_template("form.html")
 
 
