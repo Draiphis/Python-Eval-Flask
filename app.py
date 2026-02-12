@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request,render_template,flash
+from flask import Flask, jsonify, request,render_template,flash,redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, timezone
 import locale
@@ -99,6 +99,7 @@ def form():
             entry = Event(title=title, event_type=event_type, event_proposed_date=event_proposed_date, event_place=event_place, description=description)
             db.session.add(entry)
             db.session.commit()
+            return redirect(url_for('home'))
     return render_template("form.html")
 
 
