@@ -24,4 +24,13 @@
         {% block content %}{% endblock %}
     </div>
 </body>
+
+<script>
+  const btn = document.getElementById('btn');
+
+  btn.addEventListener('click', () => {
+    // ajoute ou retire la classe "anim-mode" au <body>
+    document.body.classList.toggle('anim-mode');
+  });
+</script>
 </html>

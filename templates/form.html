@@ -2,11 +2,11 @@
 {% block content %}
     <div class="form">
         <form action="{{ url_for('form') }}" method="POST">
-            <div>
+            <div class="input">
                 <label for="titre">Titre de l'événement</label>
                 <input type="text" id="titre" name="titre">
             </div>
-            <div>
+            <div class="input">
                 <label for="type">Choississez un type d'événement:</label>
                 <select id="type" name="type">
                     <option value="conférence">conférence</option>
@@ -16,17 +16,17 @@
                     <option value="autre">autre</option>
                 </select>
             </div>
-            <div>
+            <div class="input">
                 <label for="event_date">Date de l'événement</label>
                 <input type="date" id="event_date" name="event_date">
             </div>
-            <div>
+            <div class="input">
                 <label for="lieu">Lieu de l'événement</label>
                 <input type="text" id="lieu" name="lieu">
             </div>
-            <div>
+            <div class="desc">
                 <label for="desc">Description de l'événement</label>
-                <input type="message" id="desc" name="desc">
+                <textarea id="desc" name="desc"></textarea>
             </div>
             <div>
                 <button>Créer l'événement</button>
