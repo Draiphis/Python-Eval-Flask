@@ -12,3 +12,112 @@
 body{
     background-color: red;
 }
+
+h1{
+    text-align: center;
+    font-family:cloister-black ;
+}
+
+.card{
+    border: solid 3px #580000;
+    border-radius: 10px;
+    box-shadow: black 2px 3px 1px;
+}
+.card:hover{
+    transform: scale(1.02);
+}
+
+button{
+    border-radius: 6px;
+    border: 1px orange solid;
+    font-size: 20px;
+}
+
+#del{
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #580000;
+    color: aqua;
+}
+#del:hover{
+    animation: wiggle 0.6s ease-in-out;
+    filter: hue-rotate(270deg);
+    
+}
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+
+}
+
+.add{
+    display: flex;
+    justify-content: center;
+}
+
+
+#add{
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #2cfc03;
+    color: rgb(132, 5, 5);
+    border: #25005d 2px solid;
+    border-radius: 9px;
+    box-shadow: black 3px -5px 0px ;
+}
+
+
+#add:hover{
+    animation: boogie 1.5s ease-in-out;
+}
+@keyframes boogie {
+     0% {
+    transform: scale(1.2);
+    background-color: #580000;
+    color: #2cfc03;
+  }
+  20% {
+    transform: scale(0.7);
+    
+    
+  }
+  40% {
+    transform: scale(1.3);
+    
+    
+  }
+  60% {
+    transform: scale(0.6);
+    
+    
+  }
+  80% {
+    transform: scale(1.4);
+    
+    
+  }
+
+  100% {
+    transform: scale(1);
+    
+  }
+
+    
+}
