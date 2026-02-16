@@ -1,41 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
-    <form action="{{ url_for('form') }}" method="POST">
-        <div>
-            <label for="titre">Titre de l'événement</label>
-            <input type="text" id="titre" name="titre">
-        </div>
-        <div>
-            <label for="type">Choississez un type d'événement:</label>
-            <select id="type" name="type">
-                <option value="conférence">conférence</option>
-                <option value="team building">team building</option>
-                <option value="sortie" selected>sortie</option>
-                <option value="repas d'équipe">repas d'équipe</option>
-                <option value="autre">autre</option>
-            </select>
-        </div>
-        <div>
-            <label for="event_date">Date de l'événement</label>
-            <input type="date" id="event_date" name="event_date">
-        </div>
-        <div>
-            <label for="lieu">Lieu de l'événement</label>
-            <input type="text" id="lieu" name="lieu">
-        </div>
-        <div>
-            <label for="desc">Description de l'événement</label>
-            <input type="message" id="desc" name="desc">
-        </div>
-
-        <div>
-            <button>Créer l'événement</button>
-        </div>
-
+    <div class="form">
+        <form action="{{ url_for('form') }}" method="POST">
+            <div>
+                <label for="titre">Titre de l'événement</label>
+                <input type="text" id="titre" name="titre">
+            </div>
+            <div>
+                <label for="type">Choississez un type d'événement:</label>
+                <select id="type" name="type">
+                    <option value="conférence">conférence</option>
+                    <option value="team building">team building</option>
+                    <option value="sortie" selected>sortie</option>
+                    <option value="repas d'équipe">repas d'équipe</option>
+                    <option value="autre">autre</option>
+                </select>
+            </div>
+            <div>
+                <label for="event_date">Date de l'événement</label>
+                <input type="date" id="event_date" name="event_date">
+            </div>
+            <div>
+                <label for="lieu">Lieu de l'événement</label>
+                <input type="text" id="lieu" name="lieu">
+            </div>
+            <div>
+                <label for="desc">Description de l'événement</label>
+                <input type="message" id="desc" name="desc">
+            </div>
+            <div>
+                <button>Créer l'événement</button>
+            </div>
         
-
-
-
-
-    </form>
+        </form>
+    </div>
 {% endblock content %}

@@ -8,10 +8,10 @@
             <div class="card">
                 <p>Type d'événement : {{entry.event_type}}</p>
                 <p>{{entry.title}}</p>
-                <p>Date : {{entry.proposition_creation_date}}</p>
+                <p>Date : {{entry.event_proposed_date}}</p>
                 <p>Lieu : {{entry.event_place}}</p>
                 <p>Description de l'événement : <br> {{entry.description}}</p>
-                <p>Créer le : {{entry.event_proposed_date}}</p>
+                <p>Créer le : {{entry.proposition_creation_date}}</p>
                 <a class ="del" href="{{ url_for('delete_event', event_id=entry.id) }}"><button id="del" name="del">Supprimer l'événement</button></a>
             </div>
             

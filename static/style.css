@@ -121,3 +121,9 @@ button{
 
     
 }
+
+form{
+    border: #580000 solid 3px;
+    border-radius:10px;
+    max-width: 600px;
+}

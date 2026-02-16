@@ -117,8 +117,11 @@ def form():
 
 @app.route("/print-event", methods=['GET'])
 def print_events():
-    events=Event.query.all()
+
+
+    events=Event.query.order_by(Event.event_proposed_date.asc()).all()
     clean_events=[]
+    counter=0
     for e in events:
         clean_events.append({
             "id":e.id,
@@ -129,6 +132,9 @@ def print_events():
             "description":e.description,
             "proposition_creation_date":e.proposition_creation_date
         })
+        counter+=1
+        if counter>4:
+            break
     return jsonify({
         "events": clean_events
     })
