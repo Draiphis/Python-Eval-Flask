@@ -4,13 +4,13 @@
 }
 .card {
   padding: 10px;
-  background-color: lightblue;
-  border: 1px solid #ccc;
+  background-color: #ccc;
+  border: 1px solid #000000;
   margin: 10px;
 }
 
 body{
-    background-color: red;
+    background-color: #ccc;
 }
 
 h1{
@@ -39,7 +39,7 @@ button{
     cursor: pointer;
     display: inline-block;
     background-color: #580000;
-    color: aqua;
+    color: #ccc;
 }
 #del:hover{
     animation: wiggle 0.6s ease-in-out;
@@ -126,7 +126,7 @@ form{
     border: #580000 solid 3px;
     border-radius:10px;
     background-color: #580000;
-    color: red;
+    color: #ccc;
     box-shadow: 3px 3px 2px black;
 }
 
@@ -153,7 +153,7 @@ input, select, textarea{
     width: 200px;
     border: #000000 1px solid;
     border-radius: 3px;
-    background-color: red;
+    background-color: #ccc;
 
 }
 
