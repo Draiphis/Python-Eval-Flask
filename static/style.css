@@ -171,6 +171,11 @@ input, select, textarea{
   font-weight: bold;
 }
 
+body.anim-mode{
+    background: red;
+    font-size: 25px;
+    color: #2cfc03;
+}
 
 body.anim-mode *:hover {
   animation: célamerd 2.5s ease-in-out;
