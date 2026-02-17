@@ -13,7 +13,7 @@ body{
     background-color: #ccc;
 }
 
-h1{
+h1,h2{
     text-align: center;
     font-family:cloister-black ;
 }
@@ -71,7 +71,7 @@ button{
 }
 
 
-#add{
+.btn{
     padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
@@ -84,7 +84,7 @@ button{
 }
 
 
-#add:hover{
+.btn:hover{
     animation: boogie 1.5s ease-in-out;
 }
 @keyframes boogie {
@@ -164,8 +164,6 @@ input, select, textarea{
   display: inline-block;
   padding: 12px 24px;
   margin-bottom: 20px;
-  background: #3498db;
-  color: white;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
@@ -204,3 +202,13 @@ body.anim-mode *:hover {
 
 }
 
+.json{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+#btn{
+  background-color: red;
+  color: yellow;
+}

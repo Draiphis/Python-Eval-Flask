@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <div class="add">
-        <a href="{{ url_for('form') }}"><button id="add">Ajouter un événement</button></a>
+        <a href="{{ url_for('form') }}"><button class="btn" id="add">Ajouter un événement</button></a>
     </div>
     <div class="grid">    
             {% for entry in entries %}
@@ -20,16 +20,16 @@
     </div>
 
     <div class="json">
-        <a href="{{ url_for('print_events') }}"><button id="print" name="print">Afficher le JSON de la BDD</button></a>
+        <a href="{{ url_for('print_events') }}"><button class="btn" id="print" name="print">Afficher le JSON de la BDD</button></a>
 
     </div>
 
 
 
+<h2>Attention, à partir de cette section, Cliquez avec prudence...</h2>
 
 
-
-<button id="btn">⚠️⚠️ATTENTION !!! NE SURTOUT PAS CLIQUER SUR LE BOUTON⚠️⚠️</button>
+<div class="json"><button class="btn" id="btn">⚠️⚠️ATTENTION !!! NE SURTOUT PAS CLIQUER SUR LE BOUTON⚠️⚠️</button></div>
 
 
 
